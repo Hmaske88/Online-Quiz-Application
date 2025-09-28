@@ -1,3 +1,75 @@
+### Description
+This is a **full-stack Quiz Application** built with **React** (frontend) and **Node.js + Express + SQLite** (backend). Users can take a quiz, navigate between questions, submit their answers, and view their results with detailed analysis. A timer is also included for timed quizzes.
+
+	1. App.js
+
+		Routes:
+		
+		/ → StartPage
+		
+		/exam1/:sno → ExamPage (with timer, next/prev buttons)
+		
+		/result → ResultPage (marks + percentage)
+		
+		/analyse → AnalysisPage (user vs correct answers)
+		
+		/questions → Optional QuestionList page
+		
+		State:
+		
+		questions → fetched from backend
+		
+		userAnswers → stores answers keyed by sno
+		
+		answers → optional for detailed analysis
+		
+		marks → count of correct answers
+
+	2. Server.js (Express + SQLite)
+
+		SQLite table: questions
+		
+		sno | question | option1 | option2 | option3 | option4 | answer
+
+	3. StartPage.js
+
+		Starts the exam, requests full screen.
+
+		Navigates to /exam1/1
+
+	4. ExamPage.js
+
+		Loads the current question based on URL param sno.
+		
+		Displays options with radio buttons.
+		
+		Saves selected option in userAnswers immediately.
+		
+		Timer:
+		
+		Configured in seconds (timeLeft state)
+		
+		Automatically redirects to /result when time runs out
+		
+		Timer format is mm:ss
+		
+		Next/Previous buttons navigate through questions.
+
+	5. ResultPage.js
+
+		Calculates marks and percentage using userAnswers.
+		
+		Shows results and button to navigate to /analyse.
+
+	6. AnalysisPage.js
+
+		Compares userAnswers with correct answers.
+		
+		Shows each question, correct answer, and user’s answer.
+		
+		Color coding: green if correct, red if wrong, “Not Attempted” if empty.
+
+
 ### Project Structure
 
 		├─ server
@@ -38,7 +110,7 @@
 		(2, "What is capital of India?", "Mumbai", "Delhi", "Kolkata", "Chennai", "Delhi");
 	4) .exit
 
-###Screenshots
+### Screenshots
 
 **Start Page**  
 <img width="1919" height="873" alt="Screenshot 2025-09-28 072857" src="https://github.com/user-attachments/assets/cc0f7735-2ed0-4830-af86-f1ce1258eaf0" />
