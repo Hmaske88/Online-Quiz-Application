@@ -1,0 +1,40 @@
+For running the app:
+	1)  go to -->       ..\quiz\server>   
+	    run command -->       node server.js
+	2)  go to -->		..\quiz>
+	    run command -->	npm start
+
+
+** Backend used is --> (Node.js + Express + SQLite)**
+
+
+For seeing the schema: go to --> http://localhost:5000/schema
+For seeing the question in the database --> in json format--> http://localhost:5000/questions
+					-->  in react --> http://localhost:3000/questions
+
+
+{
+	---> React app (frontend) → runs by default on localhost:3000.
+
+	---> Node.js backend (API + SQLite database) → started it on port 5000.
+
+		Example: http://localhost:5000/schema → Express routes handle this and run 			PRAGMA table_info(questions) on the database.
+
+		Example: http://localhost:5000/questions → fetches all records from your 			questions table.
+}
+
+
+
+
+** For inserting data into database :
+	1) go to-->	..\quiz\server>
+	2) run command-->	sqlite3 quiz.db
+	3) INSERT INTO questions (sno, question, option1, option2, option3, option4, answer)
+		VALUES 
+		(1, "What is 2+2?", "3", "4", "5", "6", "4"),
+		(2, "What is capital of India?", "Mumbai", "Delhi", "Kolkata", "Chennai", "Delhi");
+	4) .exit
+
+
+
+
